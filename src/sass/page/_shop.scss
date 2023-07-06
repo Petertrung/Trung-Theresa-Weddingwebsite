@@ -1,0 +1,139 @@
+
+/*--------------------------------------------------------------
+12. wpo-shop-page
+--------------------------------------------------------------*/
+.wpo-shop-page {
+	padding-bottom: 90px;
+
+	@media(max-width:991px){
+		padding-bottom: 70px;
+	  }
+
+	.wpo-product-section{
+		padding: 0;
+		padding-left: 30px;
+
+		@media(max-width:991px){
+          padding-left: 0;
+		}
+		.wpo-product-img{
+			img{
+				width: 100%;
+			}
+		}
+	}
+	.sorting-section{
+		padding-bottom: 20px;
+		ul{
+			display: flex;
+			justify-content: space-between;
+			list-style: none;
+			align-items: center;
+			flex-wrap: wrap;
+
+			li{
+				margin: 10px 0;
+			}
+		}
+
+		.nice-select {
+			ul{
+				display: block;
+			}
+		}
+
+	}
+}
+
+
+
+/*--------------------------------------------------------------
+product-design
+--------------------------------------------------------------*/
+
+.wpo-product-section{
+	padding-bottom: 90px;
+	.wpo-product-wrap{
+		.wpo-product-item{
+			margin-bottom: 30px;
+			padding: 20px;
+	   		box-shadow: 0px 0px 6.1px 3.9px rgba(28, 31, 86, 0.04);
+			.wpo-product-img{
+				position: relative;
+				overflow: hidden;
+
+				img{
+					transform: scale(1);
+					transition: all .3s;
+					width: 100%;
+
+					@media(max-width:575px){
+                       width: 100%;
+					}
+				}
+				button{
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					transform: translate(-50%,-50%);
+					font-size: 18px;
+					border: 1px solid $theme-primary-color;
+					color: $theme-primary-color;
+					display: block;
+					width: 60px;
+					height: 60px;
+					line-height: 60px;
+					text-align: center;
+					background: rgba(255,255, 255, 0.9);
+					opacity: 0; 
+					visibility: hidden;
+					transition: all .3s;
+					border-radius: 50%;
+
+					&:hover{
+						background: $theme-primary-color;
+						color: $white;
+					}
+				}
+			}
+
+			&:hover{
+				.wpo-product-img{
+					button{
+						opacity: 1; 
+						visibility: visible;
+					}
+
+					img{
+						transform: scale(1.2);
+					}
+				}
+			}
+
+			.wpo-product-text{
+				padding: 20px;
+				text-align: center;
+				padding-bottom: 0;
+				h3{
+					font-size: 20px;
+					font-weight: 500;
+					font-family: $base-font;
+
+
+					a{
+						color: $dark-gray;
+
+						&:hover{
+							color: $theme-primary-color;
+						}
+					}
+				}
+
+				span{
+					font-size: 16px;
+					color: $theme-primary-color-s2;
+				}
+			}
+		}
+	}
+}

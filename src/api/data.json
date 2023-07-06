@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "proImg": "/product/1.jpg",
+    "title": "Wedding Gown",
+    "price": "340.00",
+    "delPrice": "380.00",
+    "brand":"Gucci",
+    "size":"Xl"
+  },
+  {
+    "id": 2,
+    "proImg": "/product/2.jpg",
+    "title": "Bridal Flower",
+    "price": "65.00",
+    "delPrice": "85.00",
+    "brand":"Gucci",
+    "size":"XXl"
+  },
+  {
+    "id": 3,
+    "proImg": "/product/3.jpg",
+    "title": "Bridal Shoes",
+    "price": "285.00",
+    "delPrice": "300.00",
+    "brand":"Gucci",
+    "size":"L"
+  },
+  {
+    "id": 4,
+    "proImg": "/product/4.jpg",
+    "title": "Wedding Cake",
+    "price": "176.00",
+    "delPrice": "178.00",
+    "brand":"Gucci",
+    "size":"M"
+  },
+  {
+    "id": 5,
+    "proImg": "/product/5.jpg",
+    "title": "Bride’s Crown",
+    "price": "125.00",
+    "delPrice": "130.00",
+    "brand":"Gucci",
+    "size":"XXl"
+  },
+  {
+    "id": 6,
+    "proImg": "/product/6.jpg",
+    "title": "Wedding Rings",
+    "price": "548.00",
+    "delPrice": "600.00",
+    "brand":"Gucci",
+    "size":"Xl"
+  },
+  {
+    "id": 7,
+    "proImg": "/product/7.jpg",
+    "title": "Groom’s Shoes",
+    "price": "380.00",
+    "delPrice": "400.00",
+    "brand":"Gucci",
+    "size":"Xl"
+  },
+  {
+    "id": 8,
+    "proImg": "/product/8.jpg",
+    "title": "Hair Style",
+    "price": "290.00",
+    "delPrice": "300.00",
+    "brand":"Gucci",
+    "size":"XX"
+  },
+  {
+    "id": 9,
+    "proImg": "/product/9.jpg",
+    "title": "Bridal Flower",
+    "price": "65",
+    "delPrice": "85.00",
+    "brand":"Gucci",
+    "size":"L"
+  },
+  {
+    "id": 10,
+    "proImg": "/product/10.jpg",
+    "title": "Groom Suit",
+    "price": "285",
+    "delPrice": "295.00",
+    "brand":"Gucci",
+    "size":"L"
+  },
+  {
+    "id": 11,
+    "proImg": "/product/11.jpg",
+    "title": "Groom Watch",
+    "price": "165",
+    "delPrice": "175.00",
+    "brand":"Gucci",
+    "size":"L"
+  },
+  {
+    "id": 12,
+    "proImg": "/product/12.jpg",
+    "title": "Bride’s Ring",
+    "price": "125",
+    "delPrice": "185.00",
+    "brand":"Gucci",
+    "size":"L"
+  }
+]

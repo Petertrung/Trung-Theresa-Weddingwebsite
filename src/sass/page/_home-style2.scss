@@ -1,0 +1,211 @@
+/*======================================
+ 5. Home-style-2 
+ =======================================*/
+
+ /*5.1 wpo-wedding-date*/
+
+ .wpo-wedding-time{
+	text-align: center;
+    padding-bottom: 0;
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    margin-top: -115px;
+
+    @include media-query(1200px) {
+        margin-top: -80px;
+    }
+
+    @media(max-width:767px) {
+        margin-top: 0;
+        padding-top: 80px;
+    }
+
+
+    .clock-grids{
+        box-shadow: 0px 0px 6.1px 3.9px rgba(28, 31, 86, 0.06);
+        background: $white;
+        border-radius: 15px;
+        position: relative;
+
+        &:before{
+            position: absolute;
+            left: 1%;
+            top: 7%;
+            width: 98%;
+            height: 87%;
+            content: "";
+            border:1px solid $border-color;
+            border-radius: 15px;
+        }
+    }
+    
+	.countdown-wrapper{
+		overflow: hidden;
+		text-align: center;
+        padding: 50px;
+        display: flex;
+        justify-content: space-around;
+
+        @include media-query(767px) {
+			padding: 30px;
+        }
+
+		.time {
+			font-family: $heading-font;
+			font-size: 80px;
+			font-size: calc-rem-value(80);
+			line-height: 1em;
+			padding-top: 15px;
+            color: $text-color;
+            font-weight: 500;
+
+            @include media-query(1200px) {
+				font-size: 40px;
+				font-size: calc-rem-value(40);
+			}
+
+			@include media-query(991px) {
+				font-size: 30px;
+				font-size: calc-rem-value(30);
+			}
+
+            @include media-query(575px) {
+                font-size: 25px;
+				font-size: calc-rem-value(25);
+            }
+		}
+
+        .time-text{
+            color: $text-color;
+            font-size: 25px;
+
+            @include media-query(1200px) {
+                font-size: 18px;
+            }
+            @include media-query(575px) {
+                font-size: 14px;
+            }
+        }
+	}
+}
+
+
+
+/*5.2 couple-section-s2*/
+
+.couple-section-s2,
+.couple-section-s3{
+    padding-bottom: 50px;
+
+    @media(max-width:991px){
+         padding-bottom: 30px;
+    }
+    .couple-area{
+        .couple-item {
+            .couple-img{
+                padding: 20px;
+                background-color: $white;
+                box-shadow: 0px 0px 6.1px 3.9px rgba(28, 31, 86, 0.06);
+                border-radius: 50%;
+                margin-bottom: 30px;
+                overflow: hidden;
+
+                @media(max-width:991px){
+                    max-width: 450px;
+                    margin: 0 auto;
+                    margin-bottom: 30px;
+                }
+
+                img{
+                    border-radius: 50%; 
+                }
+                  
+            }
+
+            text-align: center;
+
+            .couple-text{
+                max-width: 310px;
+                margin: 0 auto;
+                h3 {
+                    font-size: 30px;
+                    font-size: calc-rem-value(30);
+                    margin: 0 0 0.6em;
+                    font-weight: 500;
+                }
+                p{
+                    margin-bottom: 10px;
+                }
+    
+                ul {
+                    list-style: none;
+                    overflow: hidden;
+                    padding-top: 15px;
+                    display: flex;
+                    justify-content: center;
+            
+                    @include media-query(991px) {
+                        padding-top: 10px;
+                        display: flex;
+                        justify-content: center;
+                    }
+            
+                    > li + li {
+                        margin-left: 25px;
+                    }
+            
+                    li a {
+                        display: block;
+                        text-align: center;
+                        color: $theme-primary-color-s2;
+            
+                        &:hover {
+                            color: $theme-primary-color;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .middle-couple-text{
+            text-align: center;
+
+            h2{
+                font-size: 235px;
+                color: #e0d9da;
+                line-height: 170px;
+                font-weight: 400;
+
+                @media(max-width:1400px){
+                  font-size: 170px;
+                  line-height: 160px;
+                } 
+                @media(max-width:1200px){
+                  font-size: 150px;
+                  line-height: 140px;
+                } 
+                @media(max-width:991px){
+                  margin: 50px 0 20px;
+                } 
+                @media(max-width:575px){
+                    font-size: 100px;
+                    line-height: 90px;
+                } 
+
+                span{
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.couple-section-s3{
+ padding-bottom: 90px;
+
+ @media(max-width:991px){
+   padding-bottom: 60px;
+ }
+}
