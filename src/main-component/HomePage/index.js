@@ -7,7 +7,6 @@ import VideoSection from '../../components/VideoSection'
 import PortfolioSection2 from '../../components/PortfolioSection2';
 import EventSection from '../../components/EventSection';
 import RSVP from '../../components/RSVP';
-import BlogSection from '../../components/BlogSection';
 import Scrollbar from '../../components/scrollbar'
 import Footer from '../../components/footer';
 
@@ -25,7 +24,6 @@ const HomePage =() => {
             <PortfolioSection2/>
             <RSVP/>
             <EventSection/>
-            <BlogSection/>
             <Footer/> 
             <Scrollbar/>
         </Fragment>

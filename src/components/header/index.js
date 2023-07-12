@@ -45,25 +45,6 @@ class Header extends Component {
                       <li><Link activeClass="active" to="gallery" spy={true} smooth={true} duration={500} >Gallery</Link></li>
                       <li><Link activeClass="active" to="RSVP" spy={true} smooth={true} duration={500} >RSVP</Link></li>
                       <li><Link activeClass="active" to="events" spy={true} smooth={true} offset={-80} duration={500} >Events</Link></li>
-                      <li className="menu-item-has-children">
-                        <NavLink onClick={ClickHandler} to="/blog">Blog</NavLink>
-                        <ul className="sub-menu">
-                          <li><NavLink onClick={ClickHandler} to="/blog">Blog right sidebar</NavLink></li>
-                          <li><NavLink onClick={ClickHandler} to="/blog-left-sidebar">Blog left sidebar</NavLink></li>
-                          <li><NavLink onClick={ClickHandler} to="/blog-fullwidth">Blog fullwidth</NavLink></li>
-                          <li className="menu-item-has-children">
-                            <NavLink onClick={ClickHandler} to="/">Blog details</NavLink>
-                            <ul className="sub-menu">
-                              <li><NavLink onClick={ClickHandler} to="/blog-single/1">Blog details right sidebar</NavLink>
-                              </li>
-                              <li><NavLink onClick={ClickHandler} to="/blog-single-left-sidebar/1">Blog details left
-                                sidebar</NavLink></li>
-                              <li><NavLink onClick={ClickHandler} to="/blog-single-fullwidth/1">Blog details
-                                fullwidth</NavLink></li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </li>
                     </ul>
 
                   </div>
