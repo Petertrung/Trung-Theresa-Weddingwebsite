@@ -1,29 +1,29 @@
 import React from 'react'
 import SectionTitle from '../SectionTitle'
-import sImg1 from '../../images/event/1.jpg'
-import sImg2 from '../../images/event/2.jpg'
-import sImg3 from '../../images/event/3.jpg'
+import church from '../../images/event/church.png'
+import cocktail from '../../images/event/cocktail.jpg'
+import reception from '../../images/event/reception.jpg'
 import LocationMap from '../Modal'
 
 
 const Events = [
     {
-        Simg: sImg1,
-        title:'The Reception',
-        li1:'Monday, 25 Sep, 2022 1:00 PM – 4:30 PM',
-        li2:'Estern Star Plaza, Road 123, USA',
+        Simg: church,
+        title:'The Ceremony',
+        li1:'Saturday, 25 Sep, 2022 2:00 PM – 3:30 PM',
+        li2:'Vietnamese Martyrs Parish, 6841 S 180th St, Tukwila, WA 98188',
     },
     {
-        Simg: sImg2,
-        title:'THE CEREMONY',
-        li1:'Monday, 25 Sep, 2022 1:00 PM – 4:30 PM',
-        li2:'Estern Star Plaza, Road 123, USA',
+        Simg: cocktail,
+        title:'Cocktail Hour',
+        li1:'Saturday, 25 Sep, 2022 6:00 PM – 7:00 PM',
+        li2:'Main Entrance, 6801 S 180th St, Tukwila, WA 98188',
     },
     {
-        Simg: sImg3,
+        Simg: reception,
         title:'The Reception',
-        li1:'Monday, 25 Sep, 2022 1:00 PM – 4:30 PM',
-        li2:'Estern Star Plaza, Road 123, USA',
+        li1:'Saturday, 25 Sep, 2022 7:00 PM',
+        li2:'Toma Thien Hall, 6801 S 180th St, Tukwila, WA 98188',
     },
 
 ]
@@ -39,7 +39,11 @@ const EventSection = (props) => {
                             <div className="col col-lg-4 col-md-6 col-12" key={eitem}>
                                 <div className="wpo-event-item">
                                     <div className="wpo-event-img">
-                                        <img src={event.Simg} alt=""/>
+                                        <img src={event.Simg} alt="" style={{
+                                            width: '100%',
+                                            aspectRatio: 16/9,
+                                            objectFit: 'cover'
+                                        }}/>
                                     </div>
                                     <div className="wpo-event-text">
                                         <h2>{event.title}</h2>
