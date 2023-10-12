@@ -3,7 +3,7 @@ import SectionTitle from '../../components/SectionTitle'
 import { TabContent, TabPane, Nav, NavItem, NavLink} from 'reactstrap';
 import classnames from 'classnames';
 import sImg1 from '../../images/story/1.jpg'
-import sImg2 from '../../images/story/2.jpg'
+import sImg2 from '../../images/story/ask2.png'
 import sImg3 from '../../images/story/3.jpg'
 import sImg4 from '../../images/story/4.jpg'
 
@@ -28,11 +28,11 @@ const StorySection = (props) => {
     const Tabs = [
         {
             Id: '1',
-            tabItem: 'First Meet',
+            tabItem: 'Our Story',
         },
         {
             Id: '2',
-            tabItem: 'First Date',
+            tabItem: 'Offical Dating',
         },
         {
             Id: '3',
@@ -40,7 +40,7 @@ const StorySection = (props) => {
         },
         {
             Id: '4',
-            tabItem: 'Our Engagement',
+            tabItem: 'Our Đám Hỏi',
         }
     ]
 
@@ -50,8 +50,8 @@ const StorySection = (props) => {
             sImg: sImg1,
             sIcon:sIcon1,
             Shape:Shape,
-            sTitle:'First Time We Meet',
-            date:'Sep 15,2022',
+            sTitle:'Our Story',
+            date:'',
             description:'I must explain to you how all this mistaken idea of denouing pleasure and praising pain was born and I will give you com acount of system,the actual teach'
         },
         {
@@ -59,8 +59,8 @@ const StorySection = (props) => {
             sImg: sImg2,
             sIcon:sIcon2,
             Shape:Shape,
-            sTitle:'First Date',
-            date:'Sep 15,2022',
+            sTitle:'Offically Dating',
+            date:'Apr 26,2021',
             description:'I must explain to you how all this mistaken idea of denouing pleasure and praising pain was born and I will give you com acount of system,the actual teach'
         },
         {
@@ -69,7 +69,7 @@ const StorySection = (props) => {
             sIcon:sIcon3,
             Shape:Shape,
             sTitle:'Marige Proposal',
-            date:'Sep 15,2022',
+            date:'July 28,2023',
             description:'I must explain to you how all this mistaken idea of denouing pleasure and praising pain was born and I will give you com acount of system,the actual teach'
         },
         {
@@ -77,8 +77,8 @@ const StorySection = (props) => {
             sImg: sImg4,
             sIcon:sIcon4,
             Shape:Shape,
-            sTitle:'Our Engagement',
-            date:'Sep 15,2022',
+            sTitle:'Our Đám Hỏi',
+            date:'Sep 10,2023',
             description:'I must explain to you how all this mistaken idea of denouing pleasure and praising pain was born and I will give you com acount of system,the actual teach'
         }
     ]
