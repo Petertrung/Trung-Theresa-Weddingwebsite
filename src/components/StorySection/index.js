@@ -113,7 +113,10 @@ const StorySection = (props) => {
                                     <TabPane tabId={story.Id} key={Sitem}>
                                         <div className="wpo-story-item">
                                             <div className="wpo-story-img">
-                                                <img src={story.sImg} alt=""/>
+                                                <img src={story.sImg} alt="" style={{
+                                                    aspectRatio: 16/9,
+                                                    objectFit: 'cover'
+                                                }}/>
                                             </div>
                                             <div className="wpo-story-content">
                                                 <div className="wpo-story-content-inner">

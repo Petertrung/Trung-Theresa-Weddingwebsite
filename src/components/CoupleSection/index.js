@@ -13,12 +13,11 @@ class CoupleSection extends Component {
                             <div className="couple-area clearfix">
                                 <div className="text-grid bride">
                                     <h3>Trung Nguyen</h3>
-                                    <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+                                    <p>- 'Theresa is this fireball of energy that is so passionate about the things she loves. As firery as she is, she is just as caring and warm.'</p>
                                     <div className="social">
                                         <ul>
-                                            <li><Link to="/"><i className="ti-facebook"></i></Link></li>
-                                            <li><Link to="/"><i className="ti-twitter-alt"></i></Link></li>
-                                            <li><Link to="/"><i className="ti-instagram"></i></Link></li>
+                                            <li><Link to="https://www.facebook.com/peter.nguyen.52035/"><i className="ti-facebook"></i></Link></li>
+                                            <li><Link to="https://www.instagram.com/nguyenfor_thewin/"><i className="ti-instagram"></i></Link></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -32,9 +31,8 @@ class CoupleSection extends Component {
                                     <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
                                     <div className="social">
                                         <ul>
-                                            <li><Link to="/"><i className="ti-facebook"></i></Link></li>
-                                            <li><Link to="/"><i className="ti-twitter-alt"></i></Link></li>
-                                            <li><Link to="/"><i className="ti-instagram"></i></Link></li>
+                                            <li><Link to="https://www.facebook.com/TreeResa"><i className="ti-facebook"></i></Link></li>
+                                            <li><Link to="https://www.instagram.com/meresatheresa/"><i className="ti-instagram"></i></Link></li>
                                         </ul>
                                     </div>
                                 </div>
