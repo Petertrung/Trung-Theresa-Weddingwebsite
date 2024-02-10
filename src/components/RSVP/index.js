@@ -1,107 +1,100 @@
-import React, { Component } from 'react'
-import SectionTitle from '../../components/SectionTitle'
+import React, { useEffect, useState } from "react";
+import SectionTitle from "../../components/SectionTitle";
 
-import vec1 from '../../images/contact/1.png'
-import vec2 from '../../images/contact/2.png'
+import vec1 from "../../images/contact/1.png";
+import vec2 from "../../images/contact/2.png";
 
-class RSVP extends Component {
+const RSVP = () => {
+  const [name, setName] = useState("");
+  const [guest, setGuest] = useState("");
+  const [guestList, setGuestList] = useState([]);
+  const [error, setError] = useState({});
 
+  const changeHandler = (e) => {
+    const updatedError = { ...error };
+    updatedError[e.target.name] = '';
 
-    state = {
-        name: '',
-        guest: '',
-        error: {}
+    // Update state
+    if (e.target.name === 'name') {
+      setName(e.target.value);
+    } else if (e.target.name === 'guest') {
+      setGuest(e.target.value);
     }
 
+    setError(updatedError);
+  };
 
-    changeHandler = (e) => {
-        const error = this.state.error;
-        error[e.target.name] = ''
+  const submitHandler = (e) => {
+    e.preventDefault();
 
-        this.setState({
-            [e.target.name]: e.target.value,
-            error
-        })
-    }
+    // Handle form submission logic here
+    // ...
 
-    subimtHandler = (e) => {
-        e.preventDefault();
+    // Clear form fields
+    setName('');
+    setGuest('');
+    setError({});
+  };
 
-        const { name,
-            guest, error } = this.state;
-
-        if (name === '') {
-            error.name = "Please enter your name";
-        }
-        if (guest === '') {
-            error.guest = "Please Select your Guest List";
-        }
-
-
-        if (error) {
-            this.setState({
-                error
-            })
-        }
-        if (error.name === '' && error.guest === '') {
-            this.setState({
-                name: '',
-                guest: '',
-                error: {}
-            })
-        }
-    }
-
-    render(){
-        const { name,
-            guest,
-            error } = this.state;
-
-        return(
-            <section className={`wpo-contact-section ${this.props.pt}`} id="RSVP">
-                <div className="container">
-                    <div className="wpo-contact-section-wrapper">
-                        <div className="wpo-contact-form-area">
-                            <SectionTitle MainTitle={'Are you attending?'}/>
-                            <form onSubmit={this.subimtHandler} className="form">
-                                <div className="row">
-                                    <div>
-                                        <div className="form-field">
-                                            <input value={name} onChange={this.changeHandler} className="form-control" type="text" name="name" placeholder="Name"/>
-                                            <p>{error.name ? error.name : ''}</p>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <select name="guest" className="form-control" value={guest} onChange={this.changeHandler}>
-                                            <option>Number Of Guests</option>
-                                            <option>01</option>
-                                            <option>02</option>
-                                            <option>03</option>
-                                            <option>04</option>
-                                            <option>05</option>
-                                        </select>
-                                        <p>{error.guest ? error.guest : ''}</p>
-                                    </div>
-                                    <div className="submit-area">
-                                        <div className="form-submit">
-                                            <button type="submit" className="theme-btn-s3">Confirm</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <div className="border-style"></div>
-                        </div>
-                        <div className="vector-1">
-                            <img src={vec1} alt=""/>
-                        </div>
-                        <div className="vector-2">
-                            <img src={vec2} alt=""/>
-                        </div>
-                    </div>
+  useEffect(() => {
+    const fetchGuestList = async () => {
+      try {
+        const response = await fetch(
+          "https://sheetdb.io/api/v1/hn304pxxerdph"
+        );
+        const data = await response.json();
+        // Assuming the data structure contains guest information
+        setGuestList(data); // Update guestList with fetched data
+      } catch (error) {
+        console.error("Error fetching guest list:", error);
+      }
+    };
+    console.log(guestList)
+    fetchGuestList(); // Call the function when the component mounts
+  }, []);
+  return (
+    <section className={`wpo-contact-section rsvp`} id="RSVP">
+      <div className="container">
+        <div className="wpo-contact-section-wrapper">
+          <div className="wpo-contact-form-area">
+            <SectionTitle MainTitle={"Are you attending?"} />
+            <form onSubmit={submitHandler} className="form">
+              <div className="row">
+                <div>
+                  <div className="form-field">
+                    <input
+                      value={name}
+                      onChange={changeHandler}
+                      className="form-control"
+                      type="text"
+                      name="name"
+                      placeholder="Name"
+                    />
+                    <p>{error.name ? error.name : ""}</p>
+                    <ul class="autocomplete-result-list"></ul>
+                  </div>
                 </div>
-            </section>
-        )
-    }
+                <div className="submit-area">
+                  <div className="form-submit">
+                    <button type="submit" className="theme-btn-s3">
+                      Confirm
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div className="border-style"></div>
+          </div>
+          <div className="vector-1">
+            <img src={vec1} alt="" />
+          </div>
+          <div className="vector-2">
+            <img src={vec2} alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
-}
-export default  RSVP;
+export default RSVP;
