@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import SectionTitle from "../../components/SectionTitle";
+import SectionTitle from "../../components/SectionTitle"; 
+import { TextField } from "@material-ui/core";
 
 import vec1 from "../../images/contact/1.png";
 import vec2 from "../../images/contact/2.png";
@@ -49,9 +50,10 @@ const RSVP = () => {
         console.error("Error fetching guest list:", error);
       }
     };
-    console.log(guestList)
     fetchGuestList(); // Call the function when the component mounts
+
   }, []);
+  console.log(guestList)
   return (
     <section className={`wpo-contact-section rsvp`} id="RSVP">
       <div className="container">
@@ -71,7 +73,7 @@ const RSVP = () => {
                       placeholder="Name"
                     />
                     <p>{error.name ? error.name : ""}</p>
-                    <ul class="autocomplete-result-list"></ul>
+                    <ul className="autocomplete-result-list"></ul>
                   </div>
                 </div>
                 <div className="submit-area">
