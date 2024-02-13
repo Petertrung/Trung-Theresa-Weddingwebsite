@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SectionTitle from "../../components/SectionTitle";
 import { TextField } from "@material-ui/core";
-import { Autocomplete, Grid , ListItem} from "@mui/material";
+import { Autocomplete, Grid} from "@mui/material";
 
 import vec1 from "../../images/contact/1.png";
 import vec2 from "../../images/contact/2.png";
@@ -27,18 +27,20 @@ const RSVP = () => {
     // Update state
     if (e.target.name === "name") {
       setName(e.target.value);
-    } else if (e.target.name === "guest") {
-      setGuest(e.target.value);
-    }
+    } 
+    //else if (e.target.name === "guest") {
+    //   setGuest(e.target.value);
+    // }
+    console.log(name)
 
     setError(updatedError);
   };
 
-  const handleRemoveGuest = (index) => {
-    const updatedGuests = guest.splice(index, 1)
-    console.log(updatedGuests)
+  const handleRemoveGuest = (i) => {
+    const updatedGuests = [...guest.slice(0, i), ...guest.slice(i + 1)];
     setGuest(updatedGuests);
   };
+  
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -90,7 +92,7 @@ const RSVP = () => {
                       disableClearable
                       onChange={changeHandler}
                       value={name}
-                      options={guestList.map((option) => option.Name) || []}
+                      options={guestList.map((option) => (option.Family + ' - '+ option.Name)) || []}
                       groupBy={(option) => option.Family}
                       renderInput={(params) => (
                         <TextField
