@@ -1,28 +1,43 @@
 import React, { useEffect, useState } from "react";
-import SectionTitle from "../../components/SectionTitle"; 
+import SectionTitle from "../../components/SectionTitle";
 import { TextField } from "@material-ui/core";
+import { Autocomplete, Grid , ListItem} from "@mui/material";
 
 import vec1 from "../../images/contact/1.png";
 import vec2 from "../../images/contact/2.png";
 
 const RSVP = () => {
   const [name, setName] = useState("");
-  const [guest, setGuest] = useState("");
+  const [guest, setGuest] = useState([
+    {
+      Family: "A/C Khang/Tâm",
+      Name: "Chị Tâm",
+      Affiliation: "TN",
+      "": "Mom/Dad Moi",
+      RSVP: "",
+    },
+  ]);
   const [guestList, setGuestList] = useState([]);
   const [error, setError] = useState({});
 
   const changeHandler = (e) => {
     const updatedError = { ...error };
-    updatedError[e.target.name] = '';
+    updatedError[e.target.name] = "";
 
     // Update state
-    if (e.target.name === 'name') {
+    if (e.target.name === "name") {
       setName(e.target.value);
-    } else if (e.target.name === 'guest') {
+    } else if (e.target.name === "guest") {
       setGuest(e.target.value);
     }
 
     setError(updatedError);
+  };
+
+  const handleRemoveGuest = (index) => {
+    const updatedGuests = guest.splice(index, 1)
+    console.log(updatedGuests)
+    setGuest(updatedGuests);
   };
 
   const submitHandler = (e) => {
@@ -32,17 +47,16 @@ const RSVP = () => {
     // ...
 
     // Clear form fields
-    setName('');
-    setGuest('');
+    setName("");
+    setGuest("");
     setError({});
   };
+
 
   useEffect(() => {
     const fetchGuestList = async () => {
       try {
-        const response = await fetch(
-          "https://sheetdb.io/api/v1/hn304pxxerdph"
-        );
+        const response = await fetch("https://sheetdb.io/api/v1/hn304pxxerdph");
         const data = await response.json();
         // Assuming the data structure contains guest information
         setGuestList(data); // Update guestList with fetched data
@@ -51,9 +65,7 @@ const RSVP = () => {
       }
     };
     fetchGuestList(); // Call the function when the component mounts
-
   }, []);
-  console.log(guestList)
   return (
     <section className={`wpo-contact-section rsvp`} id="RSVP">
       <div className="container">
@@ -64,16 +76,48 @@ const RSVP = () => {
               <div className="row">
                 <div>
                   <div className="form-field">
-                    <input
+                    {/* <input
                       value={name}
                       onChange={changeHandler}
                       className="form-control"
                       type="text"
                       name="name"
                       placeholder="Name"
+                    /> */}
+                    <Autocomplete
+                      freeSolo
+                      id="free-solo-2-demo"
+                      disableClearable
+                      onChange={changeHandler}
+                      value={name}
+                      options={guestList.map((option) => option.Name) || []}
+                      groupBy={(option) => option.Family}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          label="Name"
+                          className="form-control"
+                          InputProps={{
+                            ...params.InputProps,
+                            type: "search",
+                          }}
+                        />
+                      )}
                     />
+
                     <p>{error.name ? error.name : ""}</p>
-                    <ul className="autocomplete-result-list"></ul>
+                  </div>
+                  <div>
+                    {guest.map((guests, index) => (
+                      <Grid container spacing={2} key={guests.Name}>
+                        <Grid xs={11}>
+                            <p>{guests.Family + " - " + guests.Name}</p>
+                        </Grid>
+                        <Grid xs={1}>
+                            <i className="ti-close" onClick={() =>{handleRemoveGuest(index)}} />
+                        </Grid>
+                      </Grid>
+                    ))}
                   </div>
                 </div>
                 <div className="submit-area">
