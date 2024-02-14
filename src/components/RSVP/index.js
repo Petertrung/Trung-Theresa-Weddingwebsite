@@ -1,59 +1,56 @@
 import React, { useEffect, useState } from "react";
 import SectionTitle from "../../components/SectionTitle";
 import { TextField } from "@material-ui/core";
-import { Autocomplete, Grid} from "@mui/material";
+import { Autocomplete, Grid } from "@mui/material";
 
 import vec1 from "../../images/contact/1.png";
 import vec2 from "../../images/contact/2.png";
 
 const RSVP = () => {
   const [name, setName] = useState("");
-  const [guest, setGuest] = useState([
-    {
-      Family: "A/C Khang/Tâm",
-      Name: "Chị Tâm",
-      Affiliation: "TN",
-      "": "Mom/Dad Moi",
-      RSVP: "",
-    },
-  ]);
+  const [guest, setGuest] = useState([]);
   const [guestList, setGuestList] = useState([]);
   const [error, setError] = useState({});
 
-  const changeHandler = (e) => {
-    const updatedError = { ...error };
-    updatedError[e.target.name] = "";
-
-    // Update state
-    if (e.target.name === "name") {
-      setName(e.target.value);
-    } 
-    //else if (e.target.name === "guest") {
-    //   setGuest(e.target.value);
-    // }
-    console.log(name)
-
-    setError(updatedError);
+  const changeHandler = (e, value) => {
+    setGuest([...guest, value]);
+    setError({})
   };
 
   const handleRemoveGuest = (i) => {
     const updatedGuests = [...guest.slice(0, i), ...guest.slice(i + 1)];
     setGuest(updatedGuests);
   };
-  
 
   const submitHandler = (e) => {
     e.preventDefault();
 
-    // Handle form submission logic here
-    // ...
+    if (guest.length > 0) {
+      guest.forEach((x) => {
+        fetch("https://sheetdb.io/api/v1/hn304pxxerdph/id/" + x.id, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ RSVP: "Yes" }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Updated rows:", data.updated);
+          })
+          .catch((error) => {
+            console.error("Error updating data:", error);
+          });
+      });
 
-    // Clear form fields
-    setName("");
-    setGuest("");
-    setError({});
+      // Clear form fields
+      setName("");
+      setGuest([]);
+      setError({});
+    } else {
+      setError({name:'Please Select Guest'})
+    }
   };
-
 
   useEffect(() => {
     const fetchGuestList = async () => {
@@ -78,27 +75,25 @@ const RSVP = () => {
               <div className="row">
                 <div>
                   <div className="form-field">
-                    {/* <input
-                      value={name}
-                      onChange={changeHandler}
-                      className="form-control"
-                      type="text"
-                      name="name"
-                      placeholder="Name"
-                    /> */}
                     <Autocomplete
                       freeSolo
                       id="free-solo-2-demo"
                       disableClearable
                       onChange={changeHandler}
-                      value={name}
-                      options={guestList.map((option) => (option.Family + ' - '+ option.Name)) || []}
+                      options={guestList
+                        .filter((option) => option.RSVP !== 'Yes') // Exclude guests with RSVP = 'Yes'
+                        .filter((option) => !guest.some((g) => g.id === option.id)) // Exclude existing guests
+                      }
+                      getOptionLabel={(option) =>
+                        option.Family + " - " + option.Name
+                      }
                       groupBy={(option) => option.Family}
                       renderInput={(params) => (
                         <TextField
                           {...params}
                           label="Name"
                           className="form-control"
+                          value={name}
                           InputProps={{
                             ...params.InputProps,
                             type: "search",
@@ -112,11 +107,16 @@ const RSVP = () => {
                   <div>
                     {guest.map((guests, index) => (
                       <Grid container spacing={2} key={guests.Name}>
-                        <Grid xs={11}>
-                            <p>{guests.Family + " - " + guests.Name}</p>
+                        <Grid item xs={11}>
+                          <p>{guests.Family + " - " + guests.Name}</p>
                         </Grid>
-                        <Grid xs={1}>
-                            <i className="ti-close" onClick={() =>{handleRemoveGuest(index)}} />
+                        <Grid item xs={1}>
+                          <i
+                            className="ti-close"
+                            onClick={() => {
+                              handleRemoveGuest(index);
+                            }}
+                          />
                         </Grid>
                       </Grid>
                     ))}
