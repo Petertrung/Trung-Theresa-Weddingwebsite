@@ -1,16 +1,30 @@
 import React, { useEffect, useState } from "react";
 import SectionTitle from "../../components/SectionTitle";
-import { TextField } from "@material-ui/core";
-import { Autocomplete, Grid } from "@mui/material";
+import { Box, Link, TextField } from "@material-ui/core";
+import { Autocomplete, Grid, Button } from "@mui/material";
 
 import vec1 from "../../images/contact/1.png";
 import vec2 from "../../images/contact/2.png";
+import success from "../../images/success.gif"
 
 const RSVP = () => {
   const [name, setName] = useState("");
   const [guest, setGuest] = useState([]);
   const [guestList, setGuestList] = useState([]);
   const [error, setError] = useState({});
+  const [edit, setEdit] = useState(true);
+  const [message,setMessage] = useState(false)
+
+  const fetchGuestList = async () => {
+    try {
+      const response = await fetch("https://sheetdb.io/api/v1/hn304pxxerdph");
+      const data = await response.json();
+      // Assuming the data structure contains guest information
+      setGuestList(data); // Update guestList with fetched data
+    } catch (error) {
+      console.error("Error fetching guest list:", error);
+    }
+  };
 
   const changeHandler = (e, value) => {
     setGuest([...guest, value]);
@@ -43,6 +57,12 @@ const RSVP = () => {
           });
       });
 
+      setEdit(false)
+      setTimeout(() => {
+        setMessage(true)
+      }, 2000);
+      
+
       // Clear form fields
       setName("");
       setGuest([]);
@@ -53,16 +73,7 @@ const RSVP = () => {
   };
 
   useEffect(() => {
-    const fetchGuestList = async () => {
-      try {
-        const response = await fetch("https://sheetdb.io/api/v1/hn304pxxerdph");
-        const data = await response.json();
-        // Assuming the data structure contains guest information
-        setGuestList(data); // Update guestList with fetched data
-      } catch (error) {
-        console.error("Error fetching guest list:", error);
-      }
-    };
+   
     fetchGuestList(); // Call the function when the component mounts
   }, []);
   return (
@@ -70,7 +81,7 @@ const RSVP = () => {
       <div className="container">
         <div className="wpo-contact-section-wrapper">
           <div className="wpo-contact-form-area">
-            <SectionTitle MainTitle={"Are you attending?"} />
+            { edit ? <div><SectionTitle MainTitle={"Are you attending?"} />
             <form onSubmit={submitHandler} className="form">
               <div className="row">
                 <div>
@@ -104,7 +115,9 @@ const RSVP = () => {
 
                     <p>{error.name ? error.name : ""}</p>
                   </div>
-                  <div>
+                  <div style={{
+                    transition: 'height 6s ease-out'
+                  }}>
                     {guest.map((guests, index) => (
                       <Grid container spacing={2} key={guests.Name}>
                         <Grid item xs={11}>
@@ -130,7 +143,19 @@ const RSVP = () => {
                   </div>
                 </div>
               </div>
-            </form>
+            </form></div> : <div><SectionTitle MainTitle={"Your Reservation is confirmed"}/>
+            {message ? <div><h4 align="center">Can't wait to see you then!!</h4>
+            <Box textAlign='center'>
+              <Button variant="contained"
+                  onClick={() => {fetchGuestList();setEdit(true);setMessage(false)}}>
+                    Continue RSVPing
+              </Button>
+            </Box>
+            </div> : <img src={success} alt="loading..." loop='infinite'/>}
+            </div>
+            }
+            
+            
             <div className="border-style"></div>
           </div>
           <div className="vector-1">

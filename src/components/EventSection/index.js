@@ -12,18 +12,21 @@ const Events = [
         title:'The Ceremony',
         li1:'Saturday, 25 Sep, 2022 2:00 PM – 3:30 PM',
         li2:'Vietnamese Martyrs Parish, 6841 S 180th St, Tukwila, WA 98188',
+        link:'https://maps.app.goo.gl/oixyHNVh62Eyd6F57'
     },
     {
         Simg: cocktail,
         title:'Cocktail Hour',
         li1:'Saturday, 25 Sep, 2022 6:00 PM – 7:00 PM',
         li2:'Main Entrance, 6801 S 180th St, Tukwila, WA 98188',
+        link:'https://maps.app.goo.gl/SqofxTnHmr2fXLQT6'
     },
     {
         Simg: reception,
         title:'The Reception',
         li1:'Saturday, 25 Sep, 2022 7:00 PM',
         li2:'Toma Thien Hall, 6801 S 180th St, Tukwila, WA 98188',
+        link:'https://maps.app.goo.gl/SqofxTnHmr2fXLQT6'
     },
 
 ]
@@ -50,7 +53,7 @@ const EventSection = (props) => {
                                         <ul>
                                             <li>{event.li1}</li>
                                             <li>{event.li2}</li>
-                                            <li><LocationMap/></li>
+                                            <li><LocationMap link={event.link}/></li>
                                         </ul>
                                     </div>
                                 </div>

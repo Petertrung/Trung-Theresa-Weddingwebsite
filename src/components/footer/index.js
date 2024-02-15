@@ -94,7 +94,7 @@ const Footer = (props) => {
                   <h3>Instagram</h3>
                 </div>
                 <ul className="d-flex">
-                  {Projects.slice(0, 6).map((project, pitem) => (
+                  {/* {Projects.slice(0, 6).map((project, pitem) => (
                     <li key={pitem}>
                       <Link
                         onClick={ClickHandler}
@@ -103,7 +103,7 @@ const Footer = (props) => {
                         <img src={project.pimg1} alt="" />
                       </Link>
                     </li>
-                  ))}
+                  ))} */}
                 </ul>
               </div>
             </div>
