@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Projects from "../../api/projects";
+//import Projects from "../../api/projects";
 
 const Footer = (props) => {
   const ClickHandler = () => {
