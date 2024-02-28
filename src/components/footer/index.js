@@ -95,13 +95,13 @@ const Footer = (props) => {
               </div>
             </div>
 
-            <div className="col col-xl-3  col-lg-4 col-md-6 col-sm-12 col-12">
+            {/*<div className="col col-xl-3  col-lg-4 col-md-6 col-sm-12 col-12">
               <div className="widget instagram">
                 <div className="widget-title">
                   <h3>Instagram</h3>
                 </div>
                 <ul className="d-flex">
-                  {/* {Projects.slice(0, 6).map((project, pitem) => (
+                   {Projects.slice(0, 6).map((project, pitem) => (
                     <li key={pitem}>
                       <Link
                         onClick={ClickHandler}
@@ -110,10 +110,10 @@ const Footer = (props) => {
                         <img src={project.pimg1} alt="" />
                       </Link>
                     </li>
-                  ))} */}
+                  ))} 
                 </ul>
               </div>
-            </div>
+            </div>*/}
           </div>
         </div>
       </div>
