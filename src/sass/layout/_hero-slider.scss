@@ -427,12 +427,12 @@
 	position: absolute;
   }
   .star-1{
-	left: 200px;
-	width: 50%;
+	left: 300px;
+	width: 45%;
   }
   .star-2{
 	left: 100px;
-	bottom: 10px;
+	top: 10px;
 	width: 50%;
   }
 
@@ -496,11 +496,14 @@
 	  }
   
 	  @media (max-width: 991px) {
-		width: 400px;
+		width: 100%;
+		left: 200px;
 	  }
   
 	  @include media-query(530px) {
-		width: 300px;
+		width: 100%;
+		margin: auto;
+		left: auto;
 	  }
 
   }

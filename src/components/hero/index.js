@@ -4,8 +4,10 @@ import TimeCountDown from "../countdown";
 // import hImg2 from "../../images/slider/shape2.png";
 import stars1 from "../../images/background/stars/8.png"
 import stars2 from "../../images/background/stars/stars 1 (1).png"
-import hImg4 from "../../images/background/pinkCloud/pink paint (9).png";
-import hImg5 from "../../images/background/pinkCloud/pink paint (8).png";
+import pinkCloud1 from "../../images/background/pinkCloud/pink paint (9).png";
+import pinkCloud2 from "../../images/background/pinkCloud/pink paint (8).png";
+import blueCloud1 from "../../images/background/blueCloud/blue paint (3).png";
+import blueCloud2 from "../../images/background/blueCloud/blue paint (4).png";
 import brushedCircle from "../../images/background/text/brush circle.png";
 import and from "../../images/background/text/&.png"
 import vertTrees from "../../images/slider/vert-trees.jpg";
@@ -38,9 +40,6 @@ const Hero = (props) => {
                     <div className="clock-grids">
                       <TimeCountDown />
                     </div>
-                  </div>
-                  <div className="shape-2">
-                    <img src={hImg2} alt="hImg2" />
                   </div> 
                   <div className="clearfix"></div>
                 </div>
@@ -55,11 +54,17 @@ const Hero = (props) => {
             <img src={vertTrees} alt="hImg3" />
           </div>
           <div className="static-hero-shape-1">
-            <img src={hImg4} alt="hImg4" />
+            <img src={pinkCloud1} alt="hImg4" />
           </div>
           <div className="static-hero-shape-2">
-            <img src={hImg5} alt="hImg5" />
+            <img src={pinkCloud2} alt="hImg5" />
           </div>
+          <div className="static-hero-shape-2">
+                <img src={blueCloud1} alt="hImg2" />
+        </div>
+        <div className="static-hero-shape-1">
+            <img src={blueCloud2} alt="hImg2" />
+        </div>
         </div>
       </div>
     </section>

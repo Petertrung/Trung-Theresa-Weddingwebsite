@@ -30,7 +30,7 @@ class Header extends Component {
                 </div>
                 <div className="col-lg-3 col-md-6 col-6">
                   <div className="navbar-header">
-                    <NavLink onClick={ClickHandler} className="navbar-brand logo" to="/home">aTT<span></span>ventures</NavLink>
+                    <NavLink onClick={ClickHandler} className="navbar-brand logo" to="/">aTT<span></span>ventures</NavLink>
                   </div>
                 </div>
                 <div className="col-lg-6 col-md-1 col-1">
@@ -38,7 +38,7 @@ class Header extends Component {
                     <button className="menu-close"><i className="ti-close"></i></button>
                     <ul className="nav navbar-nav mb-2 mb-lg-0">
                       <li className="menu-item-has-children">
-                        <Link activeClass="active" to="home" spy={true} smooth={true} duration={500} >Home</Link>
+                        <Link activeClass="active" to="/" spy={true} smooth={true} duration={500} >Home</Link>
                       </li>
                       <li><Link activeClass="active" to="couple" spy={true} smooth={true} offset={-100} duration={500} >Couple</Link></li>
                       <li><Link activeClass="active" to="story" spy={true} smooth={true} duration={500} >Story</Link></li>
