@@ -91,9 +91,10 @@ const RSVP = () => {
                       id="free-solo-2-demo"
                       disableClearable
                       onChange={changeHandler}
-                      options={guestList
-                        .filter((option) => option.RSVP !== 'Yes') // Exclude guests with RSVP = 'Yes'
-                        .filter((option) => !guest.some((g) => g.id === option.id)) // Exclude existing guests
+                      options={
+                        guestList
+                        .filter((option) => option.RSVP !== 'Yes') 
+                        .filter((option) => !guest.some((g) => g.id === option.id))
                       }
                       getOptionLabel={(option) =>
                         option.Family + " - " + option.Name

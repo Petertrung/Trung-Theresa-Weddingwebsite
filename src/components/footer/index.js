@@ -64,7 +64,7 @@ const Footer = (props) => {
                 </div>
                 <div className="contact-ft">
                   <p>
-                    Would you have any enquiries.Please feel free to contuct us
+                    Should you have any inquiries, please feel free to contact us.
                   </p>
                   <ul>
                     <li
@@ -75,6 +75,13 @@ const Footer = (props) => {
                     >
                       <i className="fi flaticon-email"></i>
                       theresaandtrung@gmail.com
+                    </li>
+                    <li
+                     onClick={(e) => {
+                        window.location.href = 'tel:2062653633';
+                        e.preventDefault();
+                      }}>
+                      <i className="fi flaticon-phone-call"></i>(206) 265-3633
                     </li>
                     <li
                      onClick={(e) => {
