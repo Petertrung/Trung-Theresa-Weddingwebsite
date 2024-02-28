@@ -429,11 +429,20 @@
   .star-1{
 	left: 300px;
 	width: 45%;
+	@include media-query(530px) {
+		width: 100%;
+		left: 0px;
+	  }
   }
   .star-2{
 	left: 100px;
 	top: 10px;
 	width: 50%;
+	@include media-query(530px) {
+		width: 100%;
+		left: 0px;
+		top: 10px;
+	  }
   }
 
   .hero-inner .container {
@@ -732,13 +741,13 @@
 
     @media (max-width: 650px) {
       .static-hero-shape-1 {
-        left: -20px;
-        bottom: -85px;
+        left: 25px;
+        bottom: -180px;
       }
 
       .static-hero-shape-1 img {
         border-radius: 0;
-        width: 60%;
+        width: 100%;
       }
 
       .static-hero-shape-2 {
