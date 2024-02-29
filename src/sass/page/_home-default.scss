@@ -173,6 +173,11 @@
 			}
 		}
 	}
+
+	.couple-star{
+		position: absolute;
+		left: 600px;
+	}
 }
 
 
@@ -274,9 +279,10 @@
 					}
 
 					.border-shape{
-						position: absolute;
-						right: -30px;
-						top: -30px;
+						//position: absolute;
+						// right: -30px;
+						 top: -30px;
+						//width: 100%;
 					}
 
 					h2{

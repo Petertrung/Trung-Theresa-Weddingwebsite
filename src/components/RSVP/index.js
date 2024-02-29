@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
 import SectionTitle from "../../components/SectionTitle";
 import { Box, TextField } from "@material-ui/core";
-import { Autocomplete, Grid, Button } from "@mui/material";
+import { Autocomplete, Grid, Button, CircularProgress } from "@mui/material";
 
 import vec1 from "../../images/contact/1.png";
 import vec2 from "../../images/contact/2.png";
-import success from "../../images/success.gif"
+import success from "../../images/success.gif";
 
 const RSVP = () => {
   const [name, setName] = useState("");
+  const [open, setOpen] = useState(false);
   const [guest, setGuest] = useState([]);
   const [guestList, setGuestList] = useState([]);
   const [error, setError] = useState({});
   const [edit, setEdit] = useState(true);
-  const [message,setMessage] = useState(false)
+  const [message, setMessage] = useState(false);
+  const loading = open && guestList.length === 0;
 
   const fetchGuestList = async () => {
+    console.log('hi')
     try {
       const response = await fetch("https://sheetdb.io/api/v1/hn304pxxerdph");
       const data = await response.json();
@@ -28,8 +31,16 @@ const RSVP = () => {
 
   const changeHandler = (e, value) => {
     setGuest([...guest, value]);
-    setError({})
+    setError({});
   };
+
+  const checkEnough = (e,value) =>{
+    if(value.length > 2){
+      setOpen(true)
+    }else{
+      setOpen(false)
+    }
+  }
 
   const handleRemoveGuest = (i) => {
     const updatedGuests = [...guest.slice(0, i), ...guest.slice(i + 1)];
@@ -57,106 +68,142 @@ const RSVP = () => {
           });
       });
 
-      setEdit(false)
+      setEdit(false);
       setTimeout(() => {
-        setMessage(true)
+        setMessage(true);
       }, 2000);
-      
 
       // Clear form fields
       setName("");
       setGuest([]);
       setError({});
     } else {
-      setError({name:'Please Select Guest'})
+      setError({ name: "Please Select Guest" });
     }
   };
 
   useEffect(() => {
-   
-    fetchGuestList(); // Call the function when the component mounts
-  }, []);
+    if(open){
+      fetchGuestList(); // Call the function when the component mounts
+    }
+  }, [open]);
   return (
     <section className={`wpo-contact-section rsvp`} id="RSVP">
       <div className="container">
         <div className="wpo-contact-section-wrapper">
           <div className="wpo-contact-form-area">
-            { edit ? <div><SectionTitle MainTitle={"Are you attending?"} />
-            <form onSubmit={submitHandler} className="form">
-              <div className="row">
-                <div>
-                  <div className="form-field">
-                    <Autocomplete
-                      freeSolo
-                      id="free-solo-2-demo"
-                      disableClearable
-                      onChange={changeHandler}
-                      options={
-                        guestList
-                        .filter((option) => option.RSVP !== 'Yes') 
-                        .filter((option) => !guest.some((g) => g.id === option.id))
-                      }
-                      getOptionLabel={(option) =>
-                        option.Family + " - " + option.Name
-                      }
-                      groupBy={(option) => option.Family}
-                      renderInput={(params) => (
-                        <TextField
-                          {...params}
-                          label="Name"
-                          className="form-control"
-                          value={name}
-                          InputProps={{
-                            ...params.InputProps,
-                            type: "search",
+            {edit ? (
+              <div>
+                <SectionTitle MainTitle={"Are you attending?"} />
+                <form onSubmit={submitHandler} className="form">
+                  <div className="row">
+                    <div>
+                      <div className="form-field">
+                        <Autocomplete
+                          freeSolo
+                          id="free-solo-2-demo"
+                          disableClearable
+                          onClick={() => fetchGuestList()}
+                          open={open}
+                          onClose={() => {
+                            setOpen(false);
                           }}
-                        />
-                      )}
-                    />
+                          onInputChange={checkEnough}
+                          onChange={changeHandler}
+                          options={guestList
+                            .filter((option) => option.RSVP !== "Yes")
+                            .filter(
+                              (option) => !guest.some((g) => g.id === option.id)
+                            )}
+                          getOptionLabel={(option) =>
+                            option.Family + " - " + option.Name
+                          }
+                          groupBy={(option) => option.Family}
+                          renderInput={(params) => (
+                            <TextField
+                              {...params}
+                              label="Name"
+                              className="form-control"
+                              value={name}
+                              InputProps={{
+                                ...params.InputProps,
+                                type: "search",
 
-                    <p>{error.name ? error.name : ""}</p>
+                                endAdornment: (
+                                  <React.Fragment>
+                                    {loading ? (
+                                      <CircularProgress
+                                        color="inherit"
+                                        size={20}
+                                      />
+                                    ) : null}
+                                    {params.InputProps.endAdornment}
+                                  </React.Fragment>
+                                ),
+                              }}
+                            />
+                          )}
+                        />
+
+                        <p>{error.name ? error.name : ""}</p>
+                      </div>
+                      <div
+                        style={{
+                          transition: "height 6s ease-out",
+                        }}
+                      >
+                        {guest.map((guests, index) => (
+                          <Grid container spacing={2} key={guests.Name}>
+                            <Grid item xs={11}>
+                              <p>{guests.Family + " - " + guests.Name}</p>
+                            </Grid>
+                            <Grid item xs={1}>
+                              <i
+                                className="ti-close"
+                                onClick={() => {
+                                  handleRemoveGuest(index);
+                                }}
+                              />
+                            </Grid>
+                          </Grid>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="submit-area">
+                      <div className="form-submit">
+                        <button type="submit" className="theme-btn-s3">
+                          Confirm
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <div style={{
-                    transition: 'height 6s ease-out'
-                  }}>
-                    {guest.map((guests, index) => (
-                      <Grid container spacing={2} key={guests.Name}>
-                        <Grid item xs={11}>
-                          <p>{guests.Family + " - " + guests.Name}</p>
-                        </Grid>
-                        <Grid item xs={1}>
-                          <i
-                            className="ti-close"
-                            onClick={() => {
-                              handleRemoveGuest(index);
-                            }}
-                          />
-                        </Grid>
-                      </Grid>
-                    ))}
-                  </div>
-                </div>
-                <div className="submit-area">
-                  <div className="form-submit">
-                    <button type="submit" className="theme-btn-s3">
-                      Confirm
-                    </button>
-                  </div>
-                </div>
+                </form>
               </div>
-            </form></div> : <div><SectionTitle MainTitle={"Your Reservation is confirmed"}/>
-            {message ? <div><h4 align="center">Can't wait to see you then!!</h4>
-            <Box textAlign='center'>
-              <Button variant="contained"
-                  onClick={() => {fetchGuestList();setEdit(true);setMessage(false)}}>
-                    Continue RSVPing
-              </Button>
-            </Box>
-            </div> : <img src={success} alt="loading..." loop='infinite'/>}
-            </div>
-            }
-            
-            
+            ) : (
+              <div>
+                <SectionTitle MainTitle={"Your Reservation is confirmed"} />
+                {message ? (
+                  <div>
+                    <h4 align="center">Can't wait to see you then!!</h4>
+                    <Box textAlign="center">
+                      <Button
+                        variant="contained"
+                        onClick={() => {
+                          fetchGuestList();
+                          setEdit(true);
+                          setMessage(false);
+                        }}
+                      >
+                        Continue RSVPing
+                      </Button>
+                    </Box>
+                  </div>
+                ) : (
+                  <img src={success} alt="loading..." loop="infinite" />
+                )}
+              </div>
+            )}
+
             <div className="border-style"></div>
           </div>
           <div className="vector-1">

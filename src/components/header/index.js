@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import MobileMenu from "../MobileMenu";
 import { removeFromCart } from "../../store/actions/action";
@@ -6,9 +6,7 @@ import { Link } from 'react-scroll'
 import { NavLink } from 'react-router-dom'
 import HeaderTopbar from "../HeaderTopbar";
 
-class Header extends Component {
-
-  render() {
+const Header = (props) => {
 
     const ClickHandler = () => {
       window.scrollTo(10, 0);
@@ -17,9 +15,9 @@ class Header extends Component {
 
 
     return (
-      <header id="header" className={this.props.topbarBlock}>
+      <header id="header" className={props.topbarBlock}>
         <HeaderTopbar />
-        <div className={`wpo-site-header ${this.props.hclass}`}>
+        <div className={`wpo-site-header ${props.hclass}`}>
           <nav className="navigation navbar navbar-expand-lg navbar-light">
             <div className="container-fluid">
               <div className="row align-items-center">
@@ -55,7 +53,6 @@ class Header extends Component {
         </div>
       </header>
     )
-  }
 }
 
 const mapStateToProps = (state) => {
