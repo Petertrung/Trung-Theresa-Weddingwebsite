@@ -4,7 +4,7 @@ import SectionTitle from '../SectionTitle'
 //import pImg2 from '../../images/portfolio/2.jpg'
 import pImg3 from '../../images/portfolio/3.jpg'
 //import pImg4 from '../../images/portfolio/4.jpg'
-import pImg5 from '../../images/portfolio/5.jpg'
+//import pImg5 from '../../images/portfolio/5.jpg'
 import pImg6 from '../../images/portfolio/6.jpg'
 import pImg7 from '../../images/portfolio/7.jpg'
 import pImg8 from '../../images/portfolio/8.jpg'
@@ -24,24 +24,6 @@ const Portfolios = [
         Pimg:'https://onedrive.live.com/embed?resid=8E2E516E19319715%2144683&authkey=%21AHfa_Fh4HM5wCzU&width=3648&height=2736',
     },
     {
-        Pimg:'https://onedrive.live.com/embed?resid=8E2E516E19319715%2144716&authkey=%21APje5jF7aBOJrl8&width=5184&height=2920',
-    },
-    {
-        Pimg:'https://onedrive.live.com/embed?resid=8E2E516E19319715%2144601&authkey=%21AONqV0UUDfMwBYs&width=4640&height=2603',
-    },
-    {
-        Pimg:pImg5,
-    },
-    {
-        Pimg:pImg7,
-    },
-    {
-        Pimg:pImg8,
-    },
-    {
-        Pimg:'https://onedrive.live.com/embed?resid=8E2E516E19319715%2144688&authkey=%21AHRGWDHEHsXsbtE&width=3648&height=2736',
-    },
-    {
         Pimg:pImg6,
     },
     {
@@ -50,6 +32,37 @@ const Portfolios = [
     {
         Pimg:pImg3,
     },
+    {
+        Pimg:'https://onedrive.live.com/embed?resid=8E2E516E19319715%2144639&authkey=%21AGZ98MKI4psGjkw&width=2736&height=3648',
+    },
+    {
+        Pimg:'https://onedrive.live.com/embed?resid=8E2E516E19319715%2144653&authkey=%21ADTAH6VpwCxwyCY&width=2736&height=3648',
+    },
+    {
+        Pimg:pImg7,
+    },
+    {
+        Pimg:pImg8,
+    },
+    {
+        Pimg:'https://onedrive.live.com/embed?resid=8E2E516E19319715%2144716&authkey=%21APje5jF7aBOJrl8&width=5184&height=2920',
+    },
+    {
+        Pimg:'https://onedrive.live.com/embed?resid=8E2E516E19319715%2144601&authkey=%21AONqV0UUDfMwBYs&width=4640&height=2603',
+    },
+    {
+        Pimg:'https://onedrive.live.com/embed?resid=8E2E516E19319715%2144609&authkey=%21ABLHTkI-ggIp_HA&width=6960&height=3904',
+    },
+    {
+        Pimg:'https://onedrive.live.com/embed?resid=8E2E516E19319715%2144688&authkey=%21AHRGWDHEHsXsbtE&width=3648&height=2736',
+    },
+    {
+        Pimg:'https://onedrive.live.com/embed?resid=8E2E516E19319715%2144766&authkey=%21AF8BNrx5uTrXonM&width=5184&height=3888',
+    },
+    {
+        Pimg:'https://onedrive.live.com/embed?resid=8E2E516E19319715%2144745&authkey=%21AGcn6Ay3vMYMHzc&width=3648&height=2736',
+    },
+
 ] 
 
 const PortfolioSection2 = (props) => {
