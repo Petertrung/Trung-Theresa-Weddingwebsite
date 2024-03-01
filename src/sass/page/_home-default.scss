@@ -2,6 +2,8 @@
 
 .couple-section {
 
+	background-image: url('../../images/background/stars/8.png');
+
 	.couple-area{
 		background: #fbf8f8;
 		height: 345px;
@@ -177,6 +179,16 @@
 	.couple-star{
 		position: absolute;
 		left: 600px;
+		@media(max-width:1400px){
+			left: 600px;
+		}
+		@media(max-width:991px){
+			left: 600px;
+		}
+
+		@media(max-width:500px){
+			left: 20px;
+		}
 	}
 }
 
@@ -262,7 +274,8 @@
 				}
 
 				@media(max-width:500px){
-					padding-left: 20px;
+					padding-left: 10px;
+					padding-right: 10px;
 				}
 
 				.wpo-story-content-inner{

@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Square from "../../images/slider/square-heart.jpg";
-import stars from "../../images/background/stars/9.png"
+//import stars from "../../images/background/stars/9.png"
 
 const CoupleSection = () => {
   return (
     <section className="couple-section section-padding" id="couple">
-        <img src={stars} alt="star background" className="couple-star"/>
+        {/* <img src={stars} alt="star background" className="couple-star"/> */}
       <div className="container">
         <div className="row align-items-center">
           <div className="col col-xs-12">
