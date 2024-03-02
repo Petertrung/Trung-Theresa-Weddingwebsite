@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import Navbar2 from '../../components/Navbar'
+//import Navbar2 from '../../components/Navbar'
 //import PageTitle from '../../components/pagetitle'
 import BlogList from '../../components/BlogList'
 import Footer from '../../components/footer'
@@ -8,7 +8,7 @@ import Footer from '../../components/footer'
 const BlogPage =() => {
     return(
         <Fragment>
-            <Navbar2/>
+            {/* <Navbar2/> */}
             {/* <PageTitle pageTitle={'Latest News'} pagesub={'Blog'}/>  */}
             <BlogList/>
             <Footer/>

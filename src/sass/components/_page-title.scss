@@ -56,7 +56,7 @@
 
 
 .wpo-page-title{
-    background: url(../../images/page-title.jpg) no-repeat center top / cover;
+    background: url(../../images/page-title.png) no-repeat center top / cover;
     min-height: 300px;
     position: relative;
     display: flex;
@@ -68,17 +68,17 @@
 		min-height: 250px;
 	}
 
-	&:before{
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		background: #083051;
-		content: "";
-		z-index: -1;
-		opacity: .40;
-	}
+	// &:before{
+	// 	position: absolute;
+	// 	left: 0;
+	// 	top: 0;
+	// 	width: 100%;
+	// 	height: 100%;
+	// 	background: #083051;
+	// 	content: "";
+	// 	z-index: -1;
+	// 	opacity: .40;
+	// }
 	.wpo-breadcumb-wrap {
 		text-align: center;
 

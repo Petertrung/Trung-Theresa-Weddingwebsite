@@ -14,6 +14,7 @@ import sIcon4 from '../../images/story/4.png'
 
 
 import Shape from '../../images/story/shape.jpg'
+import { Link } from '@material-ui/core';
 
 
 const StorySection = (props) => {
@@ -36,7 +37,7 @@ const StorySection = (props) => {
         },
         {
             Id: '3',
-            tabItem: 'Marige Proposal',
+            tabItem: 'Marrige Proposal',
         },
         {
             Id: '4',
@@ -123,10 +124,11 @@ const StorySection = (props) => {
                                                     <span><img src={story.sIcon} alt=""/></span>
                                                     <h2>{story.sTitle}</h2>
                                                     <span>{story.date}</span>
-                                                    <p>{story.description}</p>
+                                                    <p>{story.description} <Link href={'/blog/' + story.Id}>Read More..</Link></p>
                                                     {/* <div className="border-shape">
                                                         <img src={story.Shape} alt=""/>
                                                     </div> */}
+                                                    
                                                 </div>
                                             </div>
                                         </div>

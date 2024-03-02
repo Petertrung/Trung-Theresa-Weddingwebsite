@@ -18,7 +18,7 @@ const AllRoute = () => {
         <Routes>
           <Route path='/' element={<Homepage/>} />
           <Route path='404' element={<ErrorPage/>} />
-          <Route path='blog-single/:id' element={<BlogDetails/>} />
+          <Route path='blog/:id' element={<BlogDetails/>} />
           <Route path='blog-single-left-sidebar/:id' element={<BlogDetailsLeftSiide/>} />
           <Route path='blog-single-fullwidth/:id' element={<BlogDetailsFull/>} />
           <Route path='blog' element={<BlogPage/>} />

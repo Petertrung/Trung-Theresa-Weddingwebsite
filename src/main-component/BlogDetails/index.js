@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import Navbar2 from '../../components/Navbar2';
+//import Navbar2 from '../../components/Navbar2';
 import PageTitle from '../../components/pagetitle'
 import Scrollbar from '../../components/scrollbar'
 import { useParams } from 'react-router-dom'
@@ -16,7 +16,7 @@ const BlogDetails =() => {
 
     return(
         <Fragment>
-            <Navbar2/>
+            {/* <Navbar2/> */}
             <PageTitle pageTitle={BlogDetails.title} pagesub={'Blog'}/> 
              <BlogSingle/>
              <Footer/>
