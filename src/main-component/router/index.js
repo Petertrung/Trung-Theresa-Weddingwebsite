@@ -14,7 +14,7 @@ const AllRoute = () => {
 
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename='/'>
         <Routes>
           <Route path='/' element={<Homepage/>} />
           <Route path='404' element={<ErrorPage/>} />

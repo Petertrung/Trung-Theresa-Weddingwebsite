@@ -969,7 +969,7 @@
 				font-size: 16px;
 				padding: 35px 20px;
 				display: block;
-				color: $dark-gray;
+				color: $white;//$dark-gray;
 				font-weight: 500;
 				position: relative;
 				font-family: $base-font;
@@ -1572,6 +1572,7 @@
 
   .fixed-navbar.active .wpo-site-header-s1{
     #navbar > ul > li > a {
+		color: $dark-gray;
 		@media(min-width:1400px){
 			padding: 35px 20px;
 		}
