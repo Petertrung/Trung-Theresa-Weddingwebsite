@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, } from "react-router-dom";
 
 import Homepage from '../HomePage'
 import BlogPage from '../BlogPage'
@@ -14,7 +14,7 @@ const AllRoute = () => {
 
   return (
     <div className="App">
-      <BrowserRouter basename='/'>
+      <Router basename='/'>
         <Routes>
           <Route path='/' element={<Homepage/>} />
           <Route path='404' element={<ErrorPage/>} />
@@ -25,7 +25,7 @@ const AllRoute = () => {
           <Route path='blog-left-sidebar' element={<BlogPageLeft/>} />
           <Route path='blog-fullwidth' element={<BlogPageFullwidth/>} />
         </Routes>
-      </BrowserRouter>
+      </Router>
 
     </div>
   );

@@ -124,7 +124,7 @@ const StorySection = (props) => {
                                                     <span><img src={story.sIcon} alt=""/></span>
                                                     <h2>{story.sTitle}</h2>
                                                     <span>{story.date}</span>
-                                                    <p>{story.description} <Link href={'/blog/' + story.Id}>Read More..</Link></p>
+                                                    <p>{story.description} <Link href={'#/blog/' + story.Id}>Read More..</Link></p>
                                                     {/* <div className="border-shape">
                                                         <img src={story.Shape} alt=""/>
                                                     </div> */}
